@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Bit{
+	public static void main(String[] args){
+		for(String s : Binaries.generate(17,4)){System.out.println(s);}
+	}
+}
+
+class Binaries{
+	public static ArrayList<String> generate(int num, int digits){
+		if(num > Math.pow(2,digits)) throw new IllegalArgumentException("Go fuck yourself..");
+		ArrayList<String> numbers = new ArrayList<>();
+		for(int i = 0; i < num; ++i){
+			String temp = "";
+			for(int j = 0; j < digits;++j){
+
+				temp+=""+new Random().nextInt(2);
+			}
+			if(numbers.indexOf(temp) == -1)
+				numbers.add(temp);
+			else
+				i--;
+		}
+		
+		return numbers;
+	}
+}
